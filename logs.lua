@@ -1,0 +1,5 @@
+RegisterServerEvent('3dme:shareDisplay')
+AddEventHandler('3dme:shareDisplay', function(text)
+	TriggerClientEvent('3dme:triggerDisplay', -1, text, source)
+	PerformHttpRequest("https://discord.com/api/webhooks/824465992876425226/nzkmOS71iAhL7DUKjTrLHqpPazMO73s6kuihESE72G2WUQ99qeo66HgpjiMWFdngNaCz", function(err, text, headers) end, 'POST', json.encode({embeds={{title="** 3D ME LOGS MADE BY HALCKSY **",description=" \nPlayer name: "..GetPlayerName(source).."\nWrote : "..text.."\nPlayer ID: "..source.."",color=16711680}}}), { ['Content-Type'] = 'application/json' })
+end)
